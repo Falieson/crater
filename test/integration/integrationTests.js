@@ -36,6 +36,10 @@ function sharedTests() {
     const color = await browser.getCssProperty('h1', 'color')
     expect(color.parsed.hex).to.equal('#333333')
   })
+  it('serves up global css', async function () {
+    const margin = await browser.getCssProperty('body', 'margin')
+    expect(margin.parsed.string).to.equal('0px')
+  })
   it('updates the counter', async function () {
     const getCounter = async () => {
       const text = await browser.getText('.counter')
